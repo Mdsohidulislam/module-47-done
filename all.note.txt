@@ -1,0 +1,22 @@
+start reast api
+
+step 1=> npm init
+step 1=> npm install express
+step 1=>npm install --save -D nodemon
+step 1=>npm install --save cros
+step 1=>npm install body-parser;
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>
+step 1=>

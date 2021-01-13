@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+
+    <div class="container">
+        <h1 id='user_name'>Md Sakil Ahmed</h1>
+        <div class="row">
+            <input type="text" class="form-control mb-3" id="user">
+            <button id="submit" class="btn-primary btn btn-block">Post</button>
+        </div>
+    </div>
+
+    <script>
+        fetch('http://localhost:3000/person')
+        .then(data => data.json())
+        .then(res=>{
+            console.log(res);
+        })
+
+        const submit=document.getElementById('submit');
+        submit.addEventListener('click',()=>{
+            const name=document.getElementById('user').value;
+            const user={name};
+            fetch('http://localhost:3000/person',{
+                method:'POST',
+                body:JSON.stringify(user),
+                headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .then(res => res.json())
+            .then(res => {
+                // console.log('post done');
+                updateName(res)
+            })
+            .catch(error=>{
+                console.log(error.message);
+            })
+
+            name.value=''
+        })
+
+        const updateName =(user)=>{
+            document.getElementById('user_name').innerHTML=user.name;
+        }
+
+    </script>
+</body>
+</html>
